@@ -49,5 +49,4 @@ attr_reader :name, :subjects, :average_score
 		average_phrase[-1] = "."
 		student + average_phrase
 	end
-
 end
