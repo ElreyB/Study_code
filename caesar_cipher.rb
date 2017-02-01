@@ -3,23 +3,26 @@ def caesar_cipher(string, shift)
 	lowercase = ("a".."z")
 	uppercase = ("A".."Z")
 	ciphered_string = " "
-	# counter = 0
-	# while counter < string.length
-	# 	letter = string[counter] # "W"
-	string.scan (/./) do |letter|
-		if lowercase.include?(letter)
-			shift.times {letter = letter.next}
-			if letter.length == 2
-				letter = letter[-1]
+	string.each_char do |letter|
+			if lowercase.include?(letter)
+				shift.times {letter = letter.next}
+				if letter.length == 2
+					letter = letter[-1]
+				end
+				ciphered_string<<letter
+			elsif uppercase.include?(letter)
+				shift.times {letter = letter.next}
+				if letter.length == 2
+					letter = letter[-1]
+				end
+				ciphered_string<<letter
+			else
+				ciphered_string<<letter
 			end
-			ciphered_string<<letter
-		end
+			ciphered_string
 	end
-
-		
-	# end
 	puts ciphered_string
 end
 
-caesar_cipher("z", 1)
+caesar_cipher("What a string!", 5)
 #  => "Bmfy f xywnsl!"
